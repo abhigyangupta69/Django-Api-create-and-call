@@ -25,14 +25,19 @@ SECRET_KEY = 'sbk2b%)9fbzi@#5)r@8*jqzs50i7e+()^y8!u166d3ncg$dbi$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+CORS_ORIGIN_ALLOW_ALL=True
+
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    ############
     'ApiApplication',
     'rest_framework',
+    'corsheaders',
+    #######
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,6 +54,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    ###############################
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'ApiProject.urls'
